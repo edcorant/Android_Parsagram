@@ -17,9 +17,7 @@ import java.util.List;
 public class Post extends ParseObject {
 
     private final String TAG = getClass().getCanonicalName();
-    private static final String KEY_DESCRIPTION = "description";
-    private static final String KEY_IMAGE = "image";
-    private static final String KEY_USER = "user";
+    public static final String KEY_DESCRIPTION = "description", KEY_IMAGE = "image", KEY_USER = "user";
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
@@ -45,24 +43,4 @@ public class Post extends ParseObject {
         put(KEY_USER, new_user);
     }
 
-    private void query_posts() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-
-        query.include(KEY_USER);
-
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> objects, ParseException e) {
-
-                if (e != null) {
-                    Log.e(TAG, "Something went wrong while fetching posts");
-                    return;
-                }
-
-                for (Post p : objects) {
-                    Log.i(TAG, "Post: " + p.getDescription() + ", from user " + p.getUser().getUsername());
-                }
-            }
-        });
-    }
 }

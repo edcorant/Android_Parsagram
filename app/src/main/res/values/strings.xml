@@ -6,4 +6,5 @@
     <string name="caption_hint">Description</string>
     <string name="take_picture_button">Take picture</string>
     <string name="submit_button">Submit</string>
+    <string name="sign_up_button_txt">Sign Up</string>
 </resources>
