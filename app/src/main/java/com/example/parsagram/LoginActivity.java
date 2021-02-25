@@ -99,13 +99,15 @@ public class LoginActivity extends AppCompatActivity {
 
                             // if no errors
                             if (e == null)
-                                return;
+                                login_user(username, password);
 
                             // else, notify user and write to log
-                            Toast.makeText(LoginActivity.this, "Sign Up failed.", Toast.LENGTH_SHORT).show();
-                            Log.e(TAG, "Unsuccessful Sign Up:", e);
-                            username_field.setText("");
-                            password_field.setText("");
+                            else {
+                                Toast.makeText(LoginActivity.this, "Sign Up failed.", Toast.LENGTH_SHORT).show();
+                                Log.e(TAG, "Unsuccessful Sign Up:", e);
+                                username_field.setText("");
+                                password_field.setText("");
+                            }
                         }
                     });
                 }
