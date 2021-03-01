@@ -9,13 +9,29 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/Username_textbox">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nav_logo_whiteout"
+            android:layout_gravity="center"
+            android:scaleX="2.5"
+            android:scaleY="2.5"
+            />
+    </FrameLayout>
+
     <EditText
         android:id="@+id/Username_textbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_above="@id/Password_textbox"
         android:hint="@string/username_hint"
         />
 
@@ -23,7 +39,7 @@
         android:id="@+id/Password_textbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Username_textbox"
+        android:layout_above="@id/linear"
         android:layout_alignStart="@id/Username_textbox"
         android:layout_alignEnd="@id/Username_textbox"
         android:hint="@string/password_hint"
@@ -31,10 +47,11 @@
         />
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/Password_textbox"
+        android:layout_centerVertical="true"
         android:layout_alignStart="@id/Password_textbox"
         android:layout_alignEnd="@id/Password_textbox"
         android:weightSum="2"
@@ -44,10 +61,11 @@
             android:id="@+id/Sign_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/light_pink"
+            android:backgroundTint="@color/light_orange"
             android:text="@string/sign_up_button_txt"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_weight="1"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -55,12 +73,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_button"
-            android:backgroundTint="@color/light_orange"
+            android:backgroundTint="@color/light_pink"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_weight="1"
+            android:textColor="@color/white"
             />
 
     </LinearLayout>
-
 
 </RelativeLayout>

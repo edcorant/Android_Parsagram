@@ -7,4 +7,7 @@
     <string name="take_picture_button">Take picture</string>
     <string name="submit_button">Submit</string>
     <string name="sign_up_button_txt">Sign Up</string>
+    <string name="home_action">Home</string>
+    <string name="compose_action">Compose</string>
+    <string name="profile_action">Profile</string>
 </resources>

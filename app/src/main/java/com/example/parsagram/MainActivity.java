@@ -1,8 +1,10 @@
 package com.example.parsagram;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,12 +14,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getCanonicalName(), photo_file_name = "photo.jpg";
     private final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
+    private BottomNavigationView bottom_navigation_view;
     private Button take_photo, submit, sign_out;
     private EditText caption;
     private ImageView photo_preview;
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        bottom_navigation_view = findViewById(R.id.bottom_navigation);
         take_photo = findViewById(R.id.Take_picture);
         submit = findViewById(R.id.Submit_button);
         caption = findViewById(R.id.Caption_textbox);
@@ -80,6 +86,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ParseUser.logOut();
                 return_to_login_activity();
+            }
+        });
+
+        bottom_navigation_view.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        fragment = fragment1;
+                        break;
+                    case R.id.action_compose:
+                        fragment = fragment2;
+                        break;
+                    case R.id.action_profile:
+                    default:
+                        fragment = fragment3;
+                        break;
+                }
+                return true;
             }
         });
     }
