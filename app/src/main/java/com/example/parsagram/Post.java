@@ -17,7 +17,7 @@ import java.util.List;
 public class Post extends ParseObject {
 
     private final String TAG = getClass().getCanonicalName();
-    public static final String KEY_DESCRIPTION = "description", KEY_IMAGE = "image", KEY_USER = "user";
+    public static final String KEY_DESCRIPTION = "description", KEY_IMAGE = "image", KEY_USER = "user", KEY_CREATED = "createdAt";
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);

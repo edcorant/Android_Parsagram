@@ -33,6 +33,7 @@
         android:layout_marginEnd="15dp"
         android:layout_above="@id/Password_textbox"
         android:hint="@string/username_hint"
+        android:backgroundTint="@color/purple_300"
         />
 
     <EditText
@@ -43,6 +44,7 @@
         android:layout_alignStart="@id/Username_textbox"
         android:layout_alignEnd="@id/Username_textbox"
         android:hint="@string/password_hint"
+        android:backgroundTint="@color/purple_300"
         android:inputType="textPassword"
         />
 
@@ -61,11 +63,9 @@
             android:id="@+id/Sign_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/light_orange"
             android:text="@string/sign_up_button_txt"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_weight="1"
-            android:textColor="@color/white"
+            style="?android:attr/buttonBarButtonStyle"
             />
 
         <Button
@@ -73,10 +73,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_button"
-            android:backgroundTint="@color/light_pink"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_weight="1"
-            android:textColor="@color/white"
+            style="?android:attr/buttonBarButtonStyle"
             />
 
     </LinearLayout>
